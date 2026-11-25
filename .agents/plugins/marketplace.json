@@ -1,0 +1,15 @@
+{
+  "name": "carecloud-plugins",
+  "interface": {
+    "displayName": "CareCloud Plugins"
+  },
+  "plugins": [
+    {
+      "name": "ui-kit-prototype",
+      "source": {
+        "source": "local",
+        "path": "./"
+      }
+    }
+  ]
+}
