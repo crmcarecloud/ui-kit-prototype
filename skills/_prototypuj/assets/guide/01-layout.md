@@ -4,7 +4,7 @@ Jak je poskládaná obrazovka aplikace — od shellu po obsah stránky a její s
 
 ## Aplikační shell
 
-- Struktura: fixní levý sidebar + sticky header + `<main>` obsah. Referenční implementace je `AppShell` ve `web/components/campaigns/app-shell.tsx`.
+- Struktura: fixní levý sidebar + sticky header + `<main>` obsah. Shell sestav v JSX prototypu z exportovaných komponent; původní aplikační `AppShell` není přibalený.
 - Hlavní sidebar je brand plocha — tmavé `--cc-sidebar` pozadí, položky menu s ikonou a labelem, aktivní položka má `cc-gradient-action`.
 - Sidebar lze přepnout do režimu `custom` (portal `#cc-sidebar-slot`) pro kontextové panely — používá ho composer přípravy kampaně.
 - Header: aplikační breadcrumb/název vlevo, globální akce a uživatel vpravo.

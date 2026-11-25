@@ -42,7 +42,7 @@ Každý formulářový prvek skládej přes `Field`:
 | Málo voleb, šetříš místo, stačí nativní ovládání | `NativeSelect` |
 | Stylizovaný výběr, střední počet voleb | `Select` |
 | Mnoho voleb nebo potřeba hledání | `Combobox` |
-| Výběr entity z API (kontakty, šablony) | aplikační picker dialog (`web/components/ui/entity-picker-dialog.tsx`) |
+| Výběr entity z mock dat (kontakty, šablony) | `Dialog` s filtrovaným seznamem nad mock daty |
 
 - `Select` vs `DropdownMenu`: `Select` vybírá hodnotu do formuláře, `DropdownMenu` spouští akce. Nezaměňuj.
 - `Switch` vs `Checkbox`: switch mění nastavení okamžitě (autosave), checkbox je součást odesílaného formuláře.
@@ -50,7 +50,7 @@ Každý formulářový prvek skládej přes `Field`:
 ## Datum a čas
 
 - Samostatný kalendář: `Calendar`.
-- Datum + čas v aplikaci: aplikační `date-time-picker` a `time-picker` ve `web/components/ui/` (ne v kitu — jsou doménové).
+- Datum + čas: sestav ovládání z dostupných komponent nebo `Input` s odpovídajícím typem. Doménové pickery původní aplikace nejsou přibalené.
 
 ## Složené a sekundární prvky
 

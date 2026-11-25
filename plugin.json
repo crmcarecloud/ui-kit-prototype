@@ -2,5 +2,20 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ui-kit-prototype",
   "version": "0.1.0",
-  "description": "Generuje proklikávací HTML prototypy nad CareCloud UI kitem (packages/ui). Výstupem je jediný soubor prototyp.html s živým Reactem, komponentami UI kitu, mock daty bez API a Tailwind styly."
+  "description": "Generuje proklikávací HTML prototypy nad CareCloud UI kitem (packages/ui). Výstupem je jediný soubor prototyp.html s živým Reactem, komponentami UI kitu, mock daty bez API a Tailwind styly.",
+  "author": {
+    "name": "CareCloud"
+  },
+  "repository": "https://github.com/crmcarecloud/ui-kit-prototype",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CareCloud UI Prototypes",
+        "shortDescription": "HTML prototypy CareCloud",
+        "longDescription": "Generuje proklikávací HTML prototypy nad CareCloud UI kitem (packages/ui). Výstupem je jediný soubor prototyp.html s živým Reactem, komponentami UI kitu, mock daty bez API a Tailwind styly.",
+        "developerName": "CareCloud",
+        "defaultPrompt": "Vytvoř proklikávací HTML prototyp správy zákazníků nad CareCloud UI kitem s českými mock daty."
+      }
+    }
+  }
 }

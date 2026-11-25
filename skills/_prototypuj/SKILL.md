@@ -20,6 +20,14 @@ CDN pro styly.
   data, překryvky, checklist). Pracuj podle nich; pokud soubor chybí,
   drž se vzorů v kostře.
 
+## Prostředí a rozsah
+
+Používej pouze přibalené assets. Zdrojové `packages/ui`, `web/`, npm ani
+sync skript nejsou potřeba při tvorbě prototypu. Průvodce platí pro
+`window.CCUI` a vložené styly. Výstup je soubor ke stažení; spuštění
+uvnitř chatu není zaručené. Pokud nelze soubor vytvořit nebo spustit,
+uveď konkrétní omezení a netvrď, že byl vytvořen či otestován.
+
 ## Postup
 
 1. **Scénáře a obrazovky.** Ze zadání vytáhni obrazovky a hlavní

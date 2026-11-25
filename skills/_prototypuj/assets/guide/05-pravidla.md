@@ -19,8 +19,8 @@ Rychlá rozhodovací pravidla, typické chyby a kontrolní seznam pro novou obra
 - **Don't**: placeholder jako label, tooltip pro povinnou informaci, toast pro chybu validace.
 - **Do**: české texty včetně `aria-label` a popisů; popisky tlačítek jako slovesa („Uložit koncept").
 - **Don't**: více primárních akcí v jednom kontextu, `Dialog` na potvrzení mazání, vlastní paralelní komponenty místo kitu.
-- **Do**: import z `ui`; aplikační prvky z `web/components/ui`; utility `cn`/`uuid` z kitu.
-- **Don't**: import `tw-animate-css`/`shadcn/tailwind.css` v konzumentovi (je v `theme.css`), chybějící `@source` na `packages/ui/src`.
+- **Do**: komponenty a utility `cn`/`uuid` z `window.CCUI`; dostupnost ověř v `exports.json`.
+- **Don't**: nové importy CSS, `@source` na lokální soubory nebo přepis vloženého runtime; styly kitu jsou již v šabloně.
 
 ## Ikony a typografie
 
@@ -42,10 +42,10 @@ Rychlá rozhodovací pravidla, typické chyby a kontrolní seznam pro novou obra
 
 ## Checklist pro novou obrazovku
 
-1. Shell: je součást `AppShell`/sidebar navigace? Primární akce stránky definovaná?
+1. Shell: má prototyp sidebar/navigaci podle zadání? Primární akce stránky definovaná?
 2. Obsah: karty/sekce se sémantickými tokeny, žádné hardcoded barvy.
 3. Stavy: skeleton pro načítání, `Empty` pro prázdnou kolekci, `Alert` pro chybu.
 4. Formuláře: `Field` anatomie, `FieldError` validace, správný vstup dle tabulky.
 5. Akce: destruktivní přes `AlertDialog`, výsledek přes `toast`, primární akce jedna.
 6. Texty česky, ikony lucide, `aria-label` u icon-only.
-7. Ověření: `npm run typecheck` v `packages/ui`, `npx tsc --noEmit` + `npx oxlint` + `npm run build` v konzumentovi.
+7. Ověření: otevři výsledné HTML přes `file://` s internetem; zkontroluj konzoli, navigaci, formuláře, dialogy, klávesnici a mobilní šířku. Pokud nemáš prohlížeč k dispozici, uveď, že běh nebyl ověřen. Kontroly npm původního monorepa se na samostatný HTML soubor nevztahují.

@@ -30,7 +30,7 @@ Jak zobrazovat data, kolekce entit a průběh operací.
 | Krátká operace, inline | `Spinner` |
 | Operace v tlačítku | `disabled` + `Spinner` s textem („Odesílám…") |
 | Měřitelný průběh (import, odeslání) | `Progress` (`ProgressTrack`, `ProgressIndicator`, `ProgressValue`) |
-| Globální async indikace v aplikaci | `cc-async-loader` lišta (`web/app/globals.css`) |
+| Globální async indikace v aplikaci | `Progress` nebo `Spinner` řízený simulovaným stavem prototypu |
 
 ## Prázdné a okrajové stavy
 

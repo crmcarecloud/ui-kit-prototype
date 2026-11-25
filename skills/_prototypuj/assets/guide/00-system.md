@@ -2,27 +2,17 @@
 
 Průvodce pravidly a stavbou aplikace na CareCloud UI kitu. Určený pro programátory i AI agenty — popisuje, jak je systém poskládaný a kdy který prvek použít.
 
-## Architektura
+## Samostatný HTML prototyp
 
-- `packages/ui` je sdílená komponentová knihovna. Je **source-only** — konzument (web, docs, email-designer) kompiluje TSX a generuje Tailwind styly sám.
-- Komponenty stojí na `@base-ui/react` primitivách, varianty řeší `class-variance-authority`, ikony jsou `lucide-react`.
-- Styly jsou Tailwind CSS 4 utility třídy. Téma a výchozí CareCloud skin definuje `packages/ui/theme.css`.
-- Vše se importuje z barrelu: `import { Button, Dialog, cn } from 'ui'`.
+Tento plugin obsahuje hotový browserový build UI kitu v `../prototyp.html`.
+Zdrojové monorepo ani npm nejsou potřeba pro vytvoření prototypu.
 
-## Napojení stylů
-
-Hlavní CSS soubor konzumenta musí obsahovat:
-
-```css
-@import 'tailwindcss';
-@import 'ui/theme.css';
-
-/* povinné — bez @source jsou komponenty kitu neostylované */
-@source '../packages/ui/src';
-```
-
-- `theme.css` už obsahuje `tw-animate-css` a `shadcn/tailwind.css` — neimportuj je znovu.
-- `file:` závislost vyžaduje sdílené instance Reactu — konzument musí mít v `vite.config.ts` `resolve.dedupe` pro `react`, `react-dom`, `@base-ui/react` a další peer závislosti (vzor: `ui-kit-docs/vite.config.ts`).
+- Začni kopií přibaleného HTML. React a ReactDOM načítá existující import mapa.
+- Komponenty a utility ber z `window.CCUI`, například `const { Button, Dialog, cn } = window.CCUI`.
+- Dostupné názvy ověř v `../exports.json`; neimportuj balíček `ui` ani soubory z monorepa.
+- Kompilované CSS a téma jsou vložené v HTML. Nepřidávej CSS importy ani `@source` na lokální zdroje.
+- Nové styly patří pouze do označeného bloku `NOVÉ STYLY PROTOTYPU`.
+- Runtime mění správce při obnově bundlu podle README pluginu, nikoli agent při tvorbě prototypu.
 
 ## Tokeny a skinování
 
@@ -52,16 +42,15 @@ Pravidla:
 - Složené komponenty (Dialog, Select, Table …) se montují z pojmenovaných částí (`DialogContent`, `TableRow` …) — drž se exportovaných částí, nepřepisuj jejich vnitřní strukturu.
 - Base UI `render` prop slouží k výměně elementu (např. `CollapsibleTrigger render={<Button />}`).
 
-## Kam co patří
+## Skládání obrazovek
 
-- `packages/ui/src/` — generické komponenty použitelné napříč projekty. Nové shadcn komponenty se sem přesouvají (postup v `packages/ui/README.md`).
-- `web/components/ui/` — aplikační komponenty vázané na doménu (`entity-picker-dialog`, `date-time-picker`, `chart`).
-- `web/components/campaigns/` — feature komponenty konkrétní oblasti.
-- `web/components/campaigns/app-shell.tsx` — aplikační shell (sidebar, header, main slot).
+Používej exportované komponenty z `window.CCUI`. Doménové prvky (shell,
+výběr zákazníka, výběr času) sestav přímo v JSX prototypu nad těmito
+komponentami a mock daty. Soubory původní aplikace nejsou součástí pluginu.
 
 ## Základní pravidla
 
 - Uživatelské texty jsou česky, včetně `aria-label` a placeholderů.
 - Ikony pouze z `lucide-react`; v tlačítkách s textem používej `data-icon="inline-start"` / `inline-end`.
 - Motion řídí tokeny `--cc-motion-fast/base/slow` a `--cc-ease`; `prefers-reduced-motion` je vyřešené globálně v `theme.css`.
-- Nepřidávej paralelní komponenty — nejdřív hledej v `ui`, potom ve `web/components/ui`.
+- Nepřidávej paralelní komponenty — nejdřív hledej v katalogu `window.CCUI`.
