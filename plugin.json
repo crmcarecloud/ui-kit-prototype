@@ -1,0 +1,6 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ui-kit-prototype",
+  "version": "0.1.0",
+  "description": "Generuje proklikávací HTML prototypy nad CareCloud UI kitem (packages/ui). Výstupem je jediný soubor prototyp.html s živým Reactem, komponentami UI kitu, mock daty bez API a Tailwind styly."
+}
