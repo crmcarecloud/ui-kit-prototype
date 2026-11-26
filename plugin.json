@@ -14,7 +14,10 @@
         "shortDescription": "HTML prototypy CareCloud",
         "longDescription": "Generuje proklikávací HTML prototypy nad CareCloud UI kitem (packages/ui). Výstupem je jediný soubor prototyp.html s živým Reactem, komponentami UI kitu, mock daty bez API a Tailwind styly.",
         "developerName": "CareCloud",
-        "defaultPrompt": "Vytvoř proklikávací HTML prototyp správy zákazníků nad CareCloud UI kitem s českými mock daty."
+        "defaultPrompt": "Vytvoř proklikávací HTML prototyp správy zákazníků nad CareCloud UI kitem s českými mock daty.",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png",
+        "logoDark": "./assets/icon.png"
       }
     }
   }
